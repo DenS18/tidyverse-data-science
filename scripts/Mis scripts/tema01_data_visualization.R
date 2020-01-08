@@ -38,3 +38,13 @@ ggplot(data = mpg) +  #el signo de mas significa que haremos una instruccion adi
 #ggplot(data = <DATA_FRAME>) +
 #  <GEOM_FUNCTION>(mapping = aes(MAPPINGS>))
 
+ggplot(data = mpg)
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = cyl, y = hwy))
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = cyl, y = cty))
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = class, y = drv))
