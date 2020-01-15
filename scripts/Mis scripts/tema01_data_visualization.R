@@ -92,3 +92,7 @@ ggplot(data = mpg) +
              size = 10,
              color = "red",
              fill = "yellow") 
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy), color = "green")
+?mpg
