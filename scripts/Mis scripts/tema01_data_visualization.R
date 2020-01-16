@@ -93,6 +93,66 @@ ggplot(data = mpg) +
              color = "red",
              fill = "yellow") 
 
+
+
+#----------------- PREGUNTAS DE TAREA DE LA CLASE --------------------------------
+
+#1.- Toma el siguiente fragmento de código y di qué está mal. ¿Por qué no aparecen pintados los puntos de color verde?
+
+# ggplot(data = mpg) +
+#  geom_point(mapping = aes(x = displ, y = hwy, color = "green"))
+
+#Por que la escritura correcta debiera ser así:
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy), color = "green")
-?mpg
+
+#2.- ¿Que variables son categoricas?
+
+#Variables categoricas del dataframe mpg
+# manufacturer
+# model
+# trans
+# drv
+# fl
+# class
+
+#3.- ¿Que variables son continuas?
+
+#Variables continuas del dataframe mpg
+# displ
+# year
+# cyl
+# cty
+# hwy
+
+#4.- Dibuja las variables contínuas con color, tamaño y forma respectivamente.
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy),
+             shape = 23, size = 6, color = "blue", fill = "purple")
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = cyl, y = cty),
+             shape =20, size = 4, color = "purple", fill = "blue")
+
+#5.- ¿En que se diferencian las esteticas para variables continuas y categoricas?
+#Unas representan el valor de la variable y otras únicamente la categoría a la cual pertenecen.
+
+
+#6.- ¿Qué ocurre si haces un mapeo de la misma variable a múltiples estéticas?
+
+#Se combinan los mappings (tamaño, forma, color...)
+
+
+#7.- Vamos a conocer una estética nueva llamada stroke. ¿Qué hace? ¿Con qué formas funciona bien? 
+# Se utiliza stroke para modificar el grosor de los bordes
+#Prueba
+
+ggplot(data = mpg) +
+  
+  geom_point(mapping = aes(x = displ, y = hwy, color = class), shape = 23, stroke =2)
+
+# 8.- ¿Qué ocurre si haces un mapeo de una estética a algo que no sea directamente el nombre de una variable (por ejemplo aes(color = displ < 4))?
+#Se hace una discriminación binaria en dos grupos: los que cumplen la condición y los que no la cumplen.
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes( x= displ, y = hwy, color = displ <4))
