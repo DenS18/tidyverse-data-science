@@ -66,7 +66,6 @@ ggplot(data = mpg) +
   #¿Qué desventajas? 
   #¿Qué cambiaría si tu dataset fuera mucho más grande?  
 #  Pudiera ser mas facil visualmente identificar o separar algunos valores de nuestras variables al tenerlos en graficos individuales y evitar confusiones
-
   
   #5.-
   #Investiga la documentación de ?facet_wrap y contesta a las siguientes preguntas:
@@ -83,3 +82,20 @@ ggplot(data = mpg) +
   # por que se seleccionan automaticamente dependiendo de las variables que introduzcamos
 #6.- tener una mejor vision de los datos  
   
+  
+  
+  #----------------- SESION 20: LAS DIFERENTES GEOMETRIAS DE GGPLOT 2--------------------
+
+#Diferentes geometrias  
+ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy))
+  
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, color = drv)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv, color = drv))
